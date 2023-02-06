@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/rv-internship/static/css/main.9811cdca.css",
-    "main.js": "/rv-internship/static/js/main.719b713e.js",
+    "main.js": "/rv-internship/static/js/main.26107a9d.js",
     "static/media/sidelenny.webp": "/rv-internship/static/media/sidelenny.d9bffa7d673d818b843f.webp",
     "static/media/wordmark.svg": "/rv-internship/static/media/wordmark.40bb9464612393f961d216e4129b0ea2.svg",
     "static/media/logomark.svg": "/rv-internship/static/media/logomark.f715e20c44759009f18ca09b11f804bc.svg",
     "index.html": "/rv-internship/index.html",
     "main.9811cdca.css.map": "/rv-internship/static/css/main.9811cdca.css.map",
-    "main.719b713e.js.map": "/rv-internship/static/js/main.719b713e.js.map"
+    "main.26107a9d.js.map": "/rv-internship/static/js/main.26107a9d.js.map"
   },
   "entrypoints": [
     "static/css/main.9811cdca.css",
-    "static/js/main.719b713e.js"
+    "static/js/main.26107a9d.js"
   ]
 }
