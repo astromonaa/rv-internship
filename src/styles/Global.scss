@@ -1,0 +1,29 @@
+@keyframes dropdownShow {
+  50% {
+    display: block;
+  }
+  90% {
+    display: block;
+    transform: scale(1);
+  }
+  to {
+    opacity: 1;
+    display: block;
+    transform: scale(1);
+  }
+}
+.dropdown-list {
+  -webkit-box-shadow: 3px 4px 9px 4px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 3px 4px 9px 4px rgba(34, 60, 80, 0.2);
+  box-shadow: 3px 4px 9px 4px rgba(34, 60, 80, 0.2);
+  font-weight: 400;
+  opacity: 0;
+  display: none;
+  transform: scale(0.9);
+}
+.menu-show {
+  display: block;
+  opacity: 1;
+  animation: dropdownShow 0.2s ease forwards;
+  z-index: 2;
+}

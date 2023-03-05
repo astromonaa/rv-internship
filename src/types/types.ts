@@ -20,7 +20,7 @@ export interface IWorkSpaceType {
 }
 
 export interface IToolsCard {
-  id: number;
+  id?: number;
   name: string;
   desc: string;
   icon: React.JSXElementConstructor<any>
@@ -44,6 +44,7 @@ export interface ICompanyNameInputProps {
 }
 
 export interface IProject {
+  id: number;
   name: string;
   type: string;
   detecting: string;
@@ -53,11 +54,11 @@ export interface IWorkSpace {
   id: number|any;
   name: string|any;
   emails: string|any;
-  plan: IWorkSpaceType|null|any;
-  type: IChoosen|null|any;
-  tool: IToolsCard|null|any;
+  workspacePlan: IWorkSpaceType|null|any;
+  workspaceType: IChoosen|null|any;
+  workspaceTool: IToolsCard|null|any;
   role: string|null|any;
-  projects: IProject[]
+  Projects: IProject[]
 }
 
 export interface IPerAreaState {
@@ -89,4 +90,26 @@ export interface StartInfoProps {
 export interface ModalSliceState {
   modalShow: boolean;
   toolsModal: boolean
+}
+export interface IUser {
+  id: number;
+  email: string;
+  role: string;
+  isActivated: boolean
+}
+
+export interface ILoginResponse {
+  user: IUser,
+  accessToken: string,
+  refreshToken: string;
+}
+
+export interface IAuthState {
+  isAuth: boolean;
+  user: IUser|null;
+}
+
+export interface IDropdownProps {
+  dropdown: boolean;
+  children: React.ReactChild | React.ReactNode
 }

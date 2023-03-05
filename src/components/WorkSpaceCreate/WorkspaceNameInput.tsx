@@ -2,14 +2,13 @@ import React, { createElement, FC, useState } from 'react';
 import { useAppSelector } from '../../hooks/hooks';
 import { ICompanyNameInputProps } from '../../types/types';
 import { useActions } from '../../hooks/actions';
-import { IChoosen } from '../../types/types';
 
-const CompanyNameInput: FC<ICompanyNameInputProps> = ({ inputRef, choosen, setChoosenType }) => {
+const WorkspaceNameInput: FC<ICompanyNameInputProps> = ({ inputRef, choosen, setChoosenType }) => {
 
   const { inputShow, buttons } = useAppSelector(state => state.area)
   const { setButtonActive, toggleInput } = useActions()
 
-  const chooseType = (button: IChoosen) => {
+  const chooseType = (button: any) => {
     setChoosenType(button)
     toggleInput(true)
   }
@@ -29,7 +28,7 @@ const CompanyNameInput: FC<ICompanyNameInputProps> = ({ inputRef, choosen, setCh
             <button
               key={id}
               className={`type-btn flex items-center gap-2 border-[1px] rounded-[0.375rem] border-[rgba(229,231,235,1)] px-[12px] py-[8px] ${choosen?.id === id ? 'choosen' : ''}`}
-              onClick={() => chooseType({ id, icon, text, type })}
+              onClick={() => chooseType({ id, text, type })}
             >
               {createElement(icon)}
               {text}
@@ -52,4 +51,4 @@ const CompanyNameInput: FC<ICompanyNameInputProps> = ({ inputRef, choosen, setCh
   );
 };
 
-export default CompanyNameInput;
+export default WorkspaceNameInput;

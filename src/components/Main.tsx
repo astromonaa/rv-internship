@@ -1,4 +1,3 @@
-import React from 'react';
 import WorkSpaceCreate from './WorkSpaceCreate/WorkSpaceCreate';
 import { useAppSelector } from '../hooks/hooks';
 import {useParams} from 'react-router-dom'
@@ -13,13 +12,13 @@ const Main = () => {
   const [current, setCurrent] = useState<IWorkSpace>()
   
   useEffect(() => {
-    const currentSpace = workSpaces.find(el => el.id === Number(id?.split('-')[1]))
-    setCurrent(currentSpace)
+    const currentSpace = workSpaces.find((el:IWorkSpace) => el.id === Number(id?.split('-')[1]))
+    currentSpace && setCurrent(currentSpace)
   }, [id])
   return (
     <main className='main'>
-      {(!workSpaces.length || !id || !current?.type || toolsModal) && <WorkSpaceCreate/>}
-      {current && current.type &&  <WorkSpaceInfo/>}
+      {(!workSpaces.length || !id || !current?.workspaceType?.type || toolsModal) && <WorkSpaceCreate/>}
+      {current && current?.workspaceType?.type &&  <WorkSpaceInfo/>}
     </main>
   );
 };

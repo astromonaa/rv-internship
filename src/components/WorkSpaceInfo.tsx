@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useAppSelector } from '../hooks/hooks';
 import { useState, useEffect } from 'react';
 import { IWorkSpace } from '../types/types';
-import UserInfo from './UserInfo';
+import WorkspaceInfoTop from './WorkspaceInfoTop';
 import WelcomBlock from './WelcomBlock';
 import { Plus } from 'react-bootstrap-icons'
 import Modal from './UI/Modal';
@@ -13,7 +13,7 @@ import ProjectItem from './ProjectItem';
 const WorkSpaceInfo = () => {
   const { workSpaces } = useAppSelector(state => state.area)
   const {toolsModal} = useAppSelector(state => state.modal)
-  const {toggleModal} = useActions()
+  const {toggleModal, toggleToolsModal} = useActions()
   const { id } = useParams()
   const [current, setCurrent] = useState<IWorkSpace>()
 
@@ -25,6 +25,7 @@ const WorkSpaceInfo = () => {
   const openModal = (event:React.MouseEvent<HTMLSpanElement>) => {
     event.preventDefault()
     toggleModal(true)
+    !current?.workspaceTool && toggleToolsModal(true)
   }
 
   return (
@@ -34,7 +35,7 @@ const WorkSpaceInfo = () => {
         <CreateProjectModal />
       </Modal>
       }
-      <UserInfo {...current} />
+      <WorkspaceInfoTop {...current} />
       <WelcomBlock />
       <div className='project-data-block gap-[26px]'>
         <a
@@ -46,7 +47,7 @@ const WorkSpaceInfo = () => {
           <span>Create New Project</span>
         </a>
         {
-          current?.projects.map(project => <ProjectItem project = {project}/>)
+          current?.Projects.map(project => <ProjectItem key={project.id} project = {project}/>)
         }
       </div>
     </>

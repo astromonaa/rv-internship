@@ -2,21 +2,20 @@ import {Pencil} from 'react-bootstrap-icons'
 import WorkSpaceList from './WorkSpaceList';
 import { useAppSelector } from '../../hooks/hooks';
 import { useActions } from '../../hooks/actions';
+import { useWorkspaces } from '../../hooks/useWorkspaces';
 
 const WorkSpaces = () => {
   const {workSpaces} = useAppSelector(state => state.area)
-  const {addWorkSpace} = useActions()
+  const {createWorkspace} = useWorkspaces()
 
   const addNewWorkSpace = () => {
     const workSpace = {
-      id: Date.now(),
       name: 'New WorkSpace',
       emails: '',
-      plan: null,
-      type: null,
-      tool: null 
+      workspacePlan: {name: null, goal: null, type: null, desc: null},
+      workspaceType: {text: null, type: null},
     }
-    addWorkSpace(workSpace)
+    createWorkspace(workSpace)
   }
   return (
     <>
@@ -29,7 +28,8 @@ const WorkSpaces = () => {
             onClick={addNewWorkSpace}
           >
               + <span>add workspace</span>
-          </div> : ''}
+          </div> : ''
+        }
       </div>
       <WorkSpaceList/>
     </>

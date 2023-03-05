@@ -1,13 +1,38 @@
 import PerArea from "../pages/PerArea"
-export const routes = [
+import Login from "../pages/Login"
+import Settings from "../pages/Settings"
+export const authRoutes = [
   {
     path: '/',
     element: <PerArea/>,
     exact: true
   },
   {
-    path: '/:id',
+    path: '/workspaces/:id',
     element: <PerArea/>,
     exact: true
   },
+  {
+    path: '/settings',
+    element: <Settings/>,
+    exact: true
+  },
+  {
+    path: '/settings/:route',
+    element: <Settings/>,
+    exact: true
+  },
+  {
+    path: '/:workspace/settings/:operation',
+    element: <Settings/>,
+    exact: true
+  }
+]
+
+export const publicRoutes = [
+  {
+    path: '/auth',
+    element: <Login/>,
+    exact: true
+  }
 ]

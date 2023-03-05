@@ -1,0 +1,131 @@
+.settings {
+  margin: 0 192px;
+  justify-content: space-between;
+  display: grid;
+  grid-template-columns: min-content 1fr;
+
+  &-menu {
+    width: 16rem;
+    padding: 16px 16px 80px 32px;
+    font-size: 0.875rem;
+    color: rgba(53, 57, 65, 0.9);
+    font-weight: 500;
+    margin-top: 2rem;
+
+    &-item {
+      display: block;
+      padding: 8px;
+      border-radius: 0.5em;
+      transition: all 0.4s;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #fff;
+      }
+    }
+  }
+}
+
+.selected-settings-item {
+  font-weight: 500;
+  color: blue;
+}
+
+.account-info__block {
+  padding: 32px;
+  background-color: #fff;
+  height: min-content;
+  margin-top: 2rem;
+  border-radius: 0.3em;
+  -webkit-box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+.back__to__workspace {
+  font-size: .75rem;
+  line-height: 1rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(209, 213, 219, 1);
+  color: rgba(55, 65, 81, 1);
+  border-radius: 0.2em;
+  transition: all 0.4s;
+
+  &:hover {
+    background-color: rgba(243, 244, 246, 1);
+    color: rgba(103, 6, 206, 1);
+  }
+}
+
+
+.account-usage-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.account-members-input__wrapper {
+  padding: 15px;
+  background-color: rgb(247, 246, 246);
+  border-radius: 0.3em;
+  border: 1px solid lightgray;
+
+  input {
+    width: 80%;
+    padding: 7px;
+    border: 1px solid lightgray;
+    border-radius: 0.5em;
+    &:focus {
+      outline: 1cqh;
+    }
+  }
+  select {
+    padding: 5px;
+    border-radius: 0.5em;
+    border: 1px solid lightgray;
+  }
+  button {
+    padding: 6px 15px;
+    background-color: #fff;
+    border-radius: 0.5em;
+    border: 1px solid lightgray;
+  }
+}
+.account__members-block {
+  margin-top: 30px;
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    background-color: rgb(247, 246, 246);
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    span:last-child {
+      width: 150px;
+    }
+  }
+}
+.account__members-list {
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 10px;
+    border-bottom: 1px solid lightgray;
+    div:last-child {
+      width: 150px;
+    }
+    .members-list__item__right {
+      display: flex;
+      white-space: nowrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+  }
+}

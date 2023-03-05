@@ -8,18 +8,11 @@ import { useAppSelector } from '../../hooks/hooks';
 const CreateToolsCard:FC<IToolsCardProps> = ({tool}) => {
 
   const {toggleToolsModal, setCandidateTool} = useActions()
-  const {workSpaces} = useAppSelector(state => state.area)
-  const {id} = useParams()
-  const [current, setCurrent] = useState<IWorkSpace>()
-
-  useEffect(() => {
-    setCurrent(
-      workSpaces.find(el => el.id === Number(id?.split('-')[1]))
-    )
-  }, [])
 
   const handleCreateTool = () => {
-    setCandidateTool(tool)
+    const toolCopy = {...tool}
+    delete toolCopy.id
+    setCandidateTool(toolCopy)
     toggleToolsModal(false)
   }
   return (

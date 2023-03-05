@@ -17,10 +17,10 @@ const WorkSpaceList = () => {
   },[id])
 
   const openWorkSpace = (item: IWorkSpace) => {
-    navigate(`/${item.name}-${item.id}`)
+    navigate(`/workspaces/${item.name}-${item.id}`)
   }
   return (
-    <div className='mt-[15px]'>
+    <div className='menu-workspacelist'>
       {workSpaces.length ?
         workSpaces.map(item =>
           <div

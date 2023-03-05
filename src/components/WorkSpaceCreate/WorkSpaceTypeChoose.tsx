@@ -1,6 +1,6 @@
 import { useAppSelector } from '../../hooks/hooks';
 import Card from './Card';
-import {FC, useState} from 'react';
+import {FC} from 'react';
 import { WorkSpaceTypeChooseProps } from '../../types/types';
 
 const WorkSpaceTypeChoose:FC<WorkSpaceTypeChooseProps> = ({choosenPlan, setChoosenPlan}) => {

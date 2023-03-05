@@ -2,11 +2,13 @@ import { FC } from 'react';
 import { StartInfoProps } from '../../types/types';
 import { useAppSelector } from '../../hooks/hooks';
 import { useActions } from '../../hooks/actions';
+import { useWorkspaces } from '../../hooks/useWorkspaces';
 
 const StartInfo: FC<StartInfoProps> = ({ children, handleClick, workSpaceAdd }) => {
 
-  const { buttonActive, inputDescText, paginationCurrent, buttonText } = useAppSelector(state => state.area)
+  const { buttonActive, paginationCurrent } = useAppSelector(state => state.area)
   const { setPage, setButtonActive } = useActions()
+  const {buttonText, inputDescText} = useWorkspaces()
 
   const createBack = () => {
     setPage(paginationCurrent-1)

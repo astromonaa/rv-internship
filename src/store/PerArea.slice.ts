@@ -1,7 +1,6 @@
 import {Briefcase, Mortarboard, Pencil, Map, UniversalAccess} from 'react-bootstrap-icons'
 import {createSlice} from '@reduxjs/toolkit'
 import { IPerAreaState, IWorkSpace } from '../types/types';
-import WorkSpaces from '../components/Menu/WorkSpaces';
 
 const initialState: IPerAreaState = {
   pagination: [1, 2, 3],
@@ -44,8 +43,14 @@ const PerAreaSlice = createSlice({
   name: 'PerArea',
   initialState,
   reducers: {
+    setWorkSpaces: (state, action) => {
+      state.workSpaces = action.payload
+    },
     addWorkSpace: (state, action) => {
       state.workSpaces.push(action.payload)
+    },
+    deleteWorkspace: (state, action) => {
+      state.workSpaces = state.workSpaces.filter(el => el.id !== action.payload)
     },
     changeWorkSpace: (state, action) => {
       let idx = state.workSpaces.findIndex(el => el.id === action.payload.id)
@@ -59,7 +64,7 @@ const PerAreaSlice = createSlice({
     addProject: (state, action) => {
       const {id, project} = action.payload
       const idx = state.workSpaces.findIndex(el => el.id === id)
-      state.workSpaces[idx].projects.push(project)
+      state.workSpaces[idx].Projects.push(project)
     },
     toggleInput: (state, action) => {
       state.inputShow = action.payload

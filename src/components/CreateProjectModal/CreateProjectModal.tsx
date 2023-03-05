@@ -1,55 +1,18 @@
  import {Lock, QuestionCircle} from 'react-bootstrap-icons'
- import { useParams } from 'react-router-dom';
-import { useEffect, useState, useRef } from 'react';
+import { useRef } from 'react';
 import { useAppSelector } from '../../hooks/hooks';
-import { IWorkSpace } from '../../types/types';
 import { useActions } from '../../hooks/actions';
+import { useProjects } from '../../hooks/useProjects';
 
 const CreateProjectModal = () => {
-  const {id} = useParams()
-  const {workSpaces, candidateTool} = useAppSelector(state => state.area)
-  const {toggleModal, addProject, changeWorkSpaceItem} = useActions()
 
-  const [current, setCurrent] = useState<IWorkSpace>()
-  const [invalidDetect, setInvalidDetect] = useState(false)
-  const [invalidName, setInvalidName] = useState(false)
+  const {toggleModal} = useActions()
+  const {current, invalidDetect, invalidName, onCreate, setInvalidName, setInvalidDetect} = useProjects()
 
   const type = useRef<HTMLSelectElement>(null)
   const detect = useRef<HTMLInputElement>(null)
   const name = useRef<HTMLInputElement>(null)
 
-  useEffect(() => {
-    setCurrent(
-      workSpaces.find(el => el.id === Number(id?.split('-')[1]))
-    )
-  }, [])
-
-  const onCreate = () => {
-    let valid = true
-    if(!detect?.current?.value.trim().length) {
-      setInvalidDetect(true)
-      valid = false
-    }
-    if (!name?.current?.value.trim().length) {
-      setInvalidName(true)
-      valid = false
-    }
-    valid && createProject()
-  }
-  const createProject = () => {
-    const spaceId = Number(id?.split('-')[1])
-    const project = {
-      id: Date.now(),
-      detecting: detect?.current?.value,
-      name: name?.current?.value,
-      type: type?.current?.value
-    }
-    if (!current?.tool) {
-      changeWorkSpaceItem({id: spaceId, value: candidateTool, fieldValue: 'tool'})
-    }
-    addProject({id: spaceId, project})
-    toggleModal(false)
-  }
   return (
     <div className='create-project-modal'>
       <div className='flex items-center ml-[16px] mt-[15px] text-[0.9em]'>
@@ -95,7 +58,7 @@ const CreateProjectModal = () => {
       />
       <div className='create-project-bottom'>
         <button onClick={() => toggleModal(false)} >Cancel</button>
-        <button onClick={onCreate}>Create Private Project</button>
+        <button onClick={() => onCreate(detect, name, type)}>Create Private Project</button>
       </div>
     </div>
   );
